@@ -1,6 +1,7 @@
 import React from "react";
 import "./index.css";
-import Todo from "./components/Todo";
+import TodoList from "./components/TodoList";
+import store from "./store";
 
 class App extends React.Component {
   constructor(props) {
@@ -11,8 +12,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1> This is my todo list app</h1>
-        <Todo />
+        <TodoList store={store} />
       </div>
     );
   }
