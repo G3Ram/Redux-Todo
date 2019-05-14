@@ -16,11 +16,25 @@ const reducer = (state = initialState, action) => {
         todoList: state.todoList.concat({
           id: state.todoList.length + 1,
           todoItem: state.inputValue,
-          completed: "false",
-          due_date: Date.now()
+          completed: false,
+          deleted: false
         }),
         inputValue: ""
       });
+    case "MARK_COMPLETE":
+      return {
+        ...state,
+        todoList: state.todoList.map(todoItem => {
+          if (todoItem.id === action.id) {
+            console.log("---------id is " + action.id, todoItem.completed);
+            return {
+              ...todoItem,
+              completed: !todoItem.completed
+            };
+          }
+          return todoItem;
+        })
+      };
     default:
       return state;
   }

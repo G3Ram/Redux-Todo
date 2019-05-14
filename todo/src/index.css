@@ -1,27 +1,92 @@
 body {
   margin: 0;
+  background: url(./page.jpg);
+  font-family: "Cookie", cursive;
+}
+html {
+  font-size: 62.5%;
 }
 * {
   outline: none;
+  box-sizing: border-box;
 }
 
 .todo-list-container {
   text-align: center;
-  width: 60%;
-  border: 1px solid gray;
-  margin-left: 20%;
-  margin-top: 5%;
+  width: 30%;
+  font-size: 2.5rem;
+  margin-left: 30.5%;
+  margin-top: 8%;
 }
 
 .todo-input {
-  width: 500px;
-  height: 25px;
-  margin-right: 20px;
+  width: 94%;
+  height: 27px;
+  font-family: "Cookie", cursive;
+  font-size: 2rem;
+  outline: none;
+  font-stretch: expanded;
+  padding-left: 10px;
 }
 
 .todo-add-btn {
-  height: 30px;
-  width: 100px;
-  border-radius: 5px;
-  background-color: lightgray;
+  height: 26px;
+  width: 6%;
+  background-color: white;
+  justify-content: left;
+  font-size: 2rem;
+  text-align: center;
+  align-content: center;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 1;
+  padding-top: 2px;
+  cursor: pointer;
+}
+
+.todo-table {
+  width: 95%;
+  margin-left: 10px;
+  margin-top: 40px;
+}
+
+.input-fields {
+  display: flex;
+  text-align: left;
+  justify-items: center;
+  padding: 0;
+  border: 1px solid lightgray;
+}
+
+#todo-heading {
+  font-size: 3rem;
+}
+
+.display-todo {
+  display: flex;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border-bottom: 1px dotted gray;
+}
+
+#item1 {
+  width: 10%;
+}
+#item2 {
+  margin-left: 5px;
+  width: 60%;
+  text-align: left;
+}
+#item2-completed {
+  margin-left: 5px;
+  width: 60%;
+  text-align: left;
+  text-decoration: line-through;
+}
+#item3 {
+  width: 30%;
+}
+
+.todo-trash {
+  width: 10%;
+  height: 40%;
 }
