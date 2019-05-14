@@ -26,13 +26,19 @@ const reducer = (state = initialState, action) => {
         ...state,
         todoList: state.todoList.map(todoItem => {
           if (todoItem.id === action.id) {
-            console.log("---------id is " + action.id, todoItem.completed);
             return {
               ...todoItem,
               completed: !todoItem.completed
             };
           }
           return todoItem;
+        })
+      };
+    case "DELETE_TODO":
+      return {
+        ...state,
+        todoList: state.todoList.filter(todoItem => {
+          return todoItem.id !== action.id;
         })
       };
     default:

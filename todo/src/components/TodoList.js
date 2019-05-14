@@ -4,7 +4,6 @@ import "../index.css";
 import { connect } from "react-redux";
 
 function TodoList(props) {
-  console.log("props in todoList is " + props.todoList);
   return (
     <div className="todo-list-container">
       <div id="todo-heading"> My Todo List</div>
@@ -23,7 +22,11 @@ function TodoList(props) {
                 {item.todoItem}
               </div>
               <div id="item3">
-                <img className="todo-trash" src="./trash.png" />
+                <img
+                  className="todo-trash"
+                  src="./trash.png"
+                  onClick={() => props.trashTodo(item.id)}
+                />
               </div>
             </div>
           ))}
@@ -32,7 +35,7 @@ function TodoList(props) {
           <input
             className="todo-input"
             type="text"
-            placeholder="Enter a todo here"
+            placeholder="What's pending? Enter it here to remember!"
             value={props.inputValue}
             onChange={props.inputChanged}
           />
@@ -46,9 +49,6 @@ function TodoList(props) {
 }
 
 const mapStateToProps = state => {
-  for (let i = 0; i < state.todoList.length; i++) {
-    console.log("**********" + state.todoList[i].completed);
-  }
   return {
     inputValue: state.inputValue,
     todoList: state.todoList
@@ -58,7 +58,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     inputChanged: evt => {
-      console.log("changed", evt.target.value);
       const action = { type: "INPUT_CHANGE", text: evt.target.value };
       dispatch(action);
     },
@@ -68,6 +67,10 @@ const mapDispatchToProps = dispatch => {
     },
     markCompleted: id => {
       const action = { type: "MARK_COMPLETE", id: id };
+      dispatch(action);
+    },
+    trashTodo: id => {
+      const action = { type: "DELETE_TODO", id: id };
       dispatch(action);
     }
   };
